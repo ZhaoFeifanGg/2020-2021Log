@@ -1,0 +1,229 @@
+# 9.17
+
+## 需要学习的知识
+
+Spring Boot 2.3.x
+
+Mybatis 3.x
+
+Spring 5.x
+
+Vue
+
+## 开发框架模式
+
+m - model
+
+c - controller
+
+v -view
+
+## 注解
+
+减少xml配置，如Bean配置文件applicationContext.xml
+
+```java
+@Controller 处理http请求
+@RestController 返回json数据=@ResponseBody+@Controller
+@GetMapping 组合注解
+@RequestParam 获取请求参数的值
+```
+
+## IDEA
+
+开发工具 
+
+## Postman
+
+调试
+
+# 9.24
+
+## MVC模式
+
+### MVC介绍
+
+Model模型-View视图-Controller控制器
+
+对应JSP-Servlet-JavaBean
+
+视图层View用户交互界面
+
+控制层Controller不做任何数据处理，接受完成用户请求
+
+MVC核心：Model模型设计，即业务逻辑处理及指定数据模型
+
+### 建议
+
+Web前端开发页面设计失业-核心放在Js或改行
+
+后端开发重点在模型M层
+
+### MVC开发底线
+
+所有请求，流程控制都由控制器完成
+
+视图部分不能有任何业务逻辑
+
+### 优势
+
+最大化重用代码：多个视图共享一个模型
+
+易更新改变：三层分离更容易改变应用程序的数据层和业务逻辑
+
+更好的分工：工程更好的进行，结构清晰易维护，代码更易管理
+
+## MVC初体验
+
+### 顺序
+
+domain、utils->mapper->service->conroller
+
+### 问题
+
+1.警告Class XXX is never used，成功编译运行
+
+File---->Settings—>Editor---->Code Style---->Inspections---->java—>Declaration redundancy——>unused declaration---->去掉勾
+
+2.Post发送Json数据
+
+Post-Body-Json
+
+## 课后思考
+
+### MVC模式的Web开发和嵌入式Web开发的差别
+
+MVC将业务逻辑分为控制层和模型层，物理性垂直方向划分位3层，嵌入式开发则是水平方向上划分位两层
+
+相比之下MVC框架模式开发更利于维护，更利于责任分工，也能更大限度重用代码，因此学习MVC模式很有必要性
+
+而嵌入式开发则在后期维护和扩展较为困难，页面稍微多点，工作量直接起飞
+
+### 接口定义和实现的差别及分开写的好处
+
+定义简单的一层代码清晰易懂，实现则复杂许多
+
+只用给别人看定义别人就能使用你写的接口而不会泄漏你的程序代码，也更利于阅读，更加强调了分工分层合作的关系
+
+同时也利于后期的维护，修改时只用修改实现的业务逻辑
+
+百度：接口编程，Spring事物用的java动态代理
+
+# 10.10
+
+## 复习
+
+Model:domain、mapper(静态数据)、service
+
+Controller:controller
+
+用户名访问、用户登录
+
+接口定义实现分离
+
+## JUnit Test
+
+[JUnit教程](https://www.w3cschool.cn/junit/fegu1hv3.html)
+
+### 人工测试（非程式化）
+
+可信度低、枯燥乏味、耗费时间及人力资源大
+
+### 自动测试（程式化）
+
+可信度高、快速自动、耗费时间及人力资源小
+
+### 什么是JUnit
+
+JUnit 是一个 Java 编程语言的单元测试框架，起源于 JUnit 的一个统称为 xUnit 的单元测试框架之一。
+
+JUnit 促进了“先测试后编码”的理念，强调建立测试数据的一段代码，可以先测试，然后再应用。
+
+### 特点：
+
+- JUnit 是一个开放的资源框架，用于编写和运行测试。
+- 提供注释来识别测试方法。
+- 提供断言来测试预期结果。
+- 提供测试运行来运行测试。
+- JUnit 测试允许你编写代码更快，并能提高质量。
+- JUnit 优雅简洁。没那么复杂，花费时间较少。
+- JUnit 测试可以自动运行并且检查自身结果并提供即时反馈。所以也没有必要人工梳理测试结果的报告。
+- JUnit 测试可以被组织为测试套件，包含测试用例，甚至其他的测试套件。
+- JUnit 在一个条中显示进度。如果运行良好则是绿色；如果运行失败，则变成红色。
+
+### 什么是一个单元测试用例?
+
+单元测试用例是一部分代码，可以确保另一端代码（方法）按预期工作。
+
+一个正式的编写好的单元测试用例的特点是：已知输入和预期输出，即在测试执行前就已知。已知输入需要测试的先决条件，预期输出需要测试后置条件。
+
+每一项需求至少需要两个单元测试用例：一个正检验，一个负检验。如果一个需求有子需求，每一个子需求必须至少有正检验和负检验两个测试用例。
+
+## 单元测试
+
+pom依赖
+
+注解@Test @Before @After
+
+## 页面模板 Thyneleaf
+
+### 练习产生的问题
+
+1.pom文件导入spring-boot-starter-thymeleaf 依赖报错
+
+导入依赖和配置后构建项目，spring-boot-starter-thymeleaf报红
+
+解决：Invalidate and restart
+
+# 10.15
+
+## 静态资源访问：application路径配置
+
+index.html默认能访问（凑巧），实则未配置不能静态访问
+
+spring.static-locations = classpath:  ...
+
+## 自定义全局异常错误
+
+@RestControllerAdvice默认返回json数据
+
+@ExceptionHandler(value=Exception.class)捕捉所有异常
+
+1.新键包，包中新建异常处理类
+
+2.新建error.html (Thyneleaf已经配置好)
+
+ModelAndView.setViewName指定模板
+
+## SpringBoot2.X过滤器
+
+### 自定义Filter
+
+#### 步骤：
+
+@ServletComponentScan启动类增加注解
+
+新建Filter类，实现对应接口
+
+@WebFilter标记为filter被扫描
+
+urlPatterns拦截规则
+
+chain.doFilter方法调用实现是否放行
+
+不放行则干点别的（返回Json）
+
+## 自定义Servlet
+
+## 注解Listener常用监听器
+
+
+
+## 思考
+
+过滤器和拦截器比较
+
+​	编写，生命周期，灵活度...
+
+多个拦截器的执行过程
+
