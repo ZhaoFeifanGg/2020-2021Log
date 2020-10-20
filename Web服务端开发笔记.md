@@ -1,4 +1,4 @@
-# 9.17
+# 2020.9.17
 
 ## 需要学习的知识
 
@@ -37,7 +37,7 @@ v -view
 
 调试
 
-# 9.24
+# 2020.9.24
 
 ## MVC模式
 
@@ -109,7 +109,7 @@ MVC将业务逻辑分为控制层和模型层，物理性垂直方向划分位3�
 
 百度：接口编程，Spring事物用的java动态代理
 
-# 10.10
+# 2020.10.10
 
 ## 复习
 
@@ -175,7 +175,7 @@ pom依赖
 
 解决：Invalidate and restart
 
-# 10.15
+# 2020.10.15
 
 ## 静态资源访问：application路径配置
 
@@ -213,17 +213,43 @@ chain.doFilter方法调用实现是否放行
 
 不放行则干点别的（返回Json）
 
-## 自定义Servlet
+## 自定义原生Servlet
 
 ## 注解Listener常用监听器
 
+ServletContextListener 应用启动监听
 
+HttpSessionLisener 会话监听
+
+ServletRequestListener 请求监听
+
+## SpringBoot2.X拦截器
+
+配置拦截器WebMvcConfigurer
+
+### 自定义拦截器
+
+preHandle 调用Controller之前 
+
+postHandle  调用Controller之后，渲染之前
+
+afterCompleton 用于资源清理
 
 ## 思考
 
-过滤器和拦截器比较
+### 过滤器和拦截器比较
 
-​	编写，生命周期，灵活度...
+比如：编写，生命周期，灵活度...
 
-多个拦截器的执行过程
+1、Filter需要在web.xml中配置，依赖于Servlet；Interceptor需要在SpringMVC中配置，依赖于框架
+
+2、在action的*生命周期*中,*拦截器*可以多次被调用,而*过滤器*只能在容器初始化时被调用一次。
+
+3、过滤器和拦截器触发时机不一样:过滤器是在请求进入容器后，但请求进入servlet之前进行预处理的。请求结束返回也是，是在servlet处理完后，返回给前端之前。
+
+4、拦截器(是基于Java的反射机制,而过滤器是基于函数回调。从灵活性上说拦截器功能更强大些,Filter能做的事情,都能做,而且可以在请求前,请求后执行，比较灵活
+
+### 多个拦截器的执行过程
+
+多个拦截器工作时，perHandle()方法会按照配置文件中的拦截器的配置顺序执行，postHandle()方法和afterCompletion方法会按照配置顺序的反序执行。
 
