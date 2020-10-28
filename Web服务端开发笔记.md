@@ -253,3 +253,61 @@ afterCompleton 用于资源清理
 
 多个拦截器工作时，perHandle()方法会按照配置文件中的拦截器的配置顺序执行，postHandle()方法和afterCompletion方法会按照配置顺序的反序执行。
 
+# 2020.10.22
+
+回顾静态访问、自定义全局异常、过滤器、拦截器
+
+## 原生JDBC访问连接数据库
+
+缺点：每次加载驱动，代码耦合（C + c C + v大法），参数设置不灵活，结果集处理麻烦，连接资源不能复用...
+
+## ORM框架
+
+对数据库表和POJO(Plain Ordinary Java Object)Java对象做映射
+
+市面上的ORM框架：Hibernate(ssh)、JPA - Spring Data JPA、Mybatis（半自动化（半ORM框架）、便于写sql）
+
+## Mybatis 
+
+### 简介
+
+官方文档：(mybatis.org/mybatis-3)
+
+免除几乎所有JDBC代码以及设置参数和获取结果集的工作
+
+通过简单的XML或注解来配置和映射原始类型、接口和Java POJO为数据库中的记录
+
+### 入门实践
+
+### 出现的问题
+
+1、连接服务器失败
+
+解决方案，经过仔细的查错阅读，发现密码123456输成了123465
+
+2、服务器错误：You must configure either the server or JDBC driver (via the serverTimezone conf)
+
+解决方案：数据库和系统时区差异所造成的，在jdbc连接的url后面加上serverTimezone=GMT即可解决问题
+
+https://blog.csdn.net/iiiiiilikangshuai/article/details/98459941
+
+3.log4配置问题org.apache.ibatis.binding.BindingException: Parameter 'mobile' not found
+
+4.etc...
+
+## 思考
+
+### ORM框架和原生JDBC访问的差异点
+
+1.ORM框架通过简单的xml配置，将sql写在XML文件中，实现业务层和数据层的分离
+
+2.JDBC代码量大繁琐易出错，ORM建立了java对象和数据库间的映射，大大降低代码量
+
+3.ORM底层仍是JDBC，封装了JDBC
+
+4.直接用JDBC更安全一些，JDBC也更加灵活
+
+
+
+
+
