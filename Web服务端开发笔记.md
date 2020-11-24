@@ -1,4 +1,4 @@
-# 2020.9.17
+# 2020.9.17 第一周
 
 ## 需要学习的知识
 
@@ -37,7 +37,7 @@ v -view
 
 调试
 
-# 2020.9.24
+# 2020.9.24 第二周
 
 ## MVC模式
 
@@ -109,7 +109,7 @@ MVC将业务逻辑分为控制层和模型层，物理性垂直方向划分位3�
 
 百度：接口编程，Spring事物用的java动态代理
 
-# 2020.10.10
+# 2020.10.10 第三周
 
 ## 复习
 
@@ -175,7 +175,7 @@ pom依赖
 
 解决：Invalidate and restart
 
-# 2020.10.15
+# 2020.10.15 第四周
 
 ## 静态资源访问：application路径配置
 
@@ -253,7 +253,7 @@ afterCompleton 用于资源清理
 
 多个拦截器工作时，perHandle()方法会按照配置文件中的拦截器的配置顺序执行，postHandle()方法和afterCompletion方法会按照配置顺序的反序执行。
 
-# 2020.10.22
+# 2020.10.22 第五周
 
 回顾静态访问、自定义全局异常、过滤器、拦截器
 
@@ -285,13 +285,23 @@ afterCompleton 用于资源清理
 
 解决方案，经过仔细的查错阅读，发现密码123456输成了123465
 
+![333](C:\Users\Administrator\Desktop\333.PNG)
+
+![](C:\Users\Administrator\Desktop\111.png)
+
+
+
 2、服务器错误：You must configure either the server or JDBC driver (via the serverTimezone conf)
 
 解决方案：数据库和系统时区差异所造成的，在jdbc连接的url后面加上serverTimezone=GMT即可解决问题
 
+![222](C:\Users\Administrator\Desktop\222.PNG)
+
 https://blog.csdn.net/iiiiiilikangshuai/article/details/98459941
 
 3.log4配置问题org.apache.ibatis.binding.BindingException: Parameter 'mobile' not found
+
+![img](file:///C:\Users\Administrator\AppData\Roaming\Tencent\Users\1303869726\QQ\WinTemp\RichOle\65]2LJBLE3_S3$0AQIK$%]9.png)
 
 4.etc...
 
@@ -307,7 +317,26 @@ https://blog.csdn.net/iiiiiilikangshuai/article/details/98459941
 
 4.直接用JDBC更安全一些，JDBC也更加灵活
 
+# 10.29 第六周
+
+自学复习
+
+# 11.5 第七周
+
+回顾：
+
+mybatis依赖，全局配置：数据源，映射，SQL语句配置
+
+log4j
+
+sqlSessionFactory
 
 
 
+# 11.12 第八周
 
+## Spring boot疑问
+
+IOC控制反转
+
+依赖注入IOP
