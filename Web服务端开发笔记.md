@@ -340,3 +340,33 @@ sqlSessionFactory
 IOC控制反转
 
 依赖注入IOP
+
+# 11.19
+
+停课
+
+# 11.26
+
+## 学习思考
+
+parameterType可以不写，但写了前面类的package不能不写
+
+定时差别
+
+fixed4秒-fixedDelay6秒-cron6秒
+
+```java
+//    @Scheduled(fixedRate = 2000)
+//    @Scheduled(fixedDelay = 2000)
+    @Scheduled(cron = "*/2 * * * * *")
+    public void sumMail(){
+        System.out.println(LocalDateTime.now()+"当前申请邮箱数："+(int)(Math.random()*100));
+        try{
+            Thread.sleep(4000);
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+    }
+```
+
+
